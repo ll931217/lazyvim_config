@@ -29,7 +29,7 @@ map({ "n", "t" }, "<C-l>", "<cmd>lua require'tmux'.move_right()<cr>", { desc = "
 
 -- GitHub Copilot
 map(
-  "n",
+  "i",
   "<C-e>",
   'copilot#Accept("\\<CR>")',
   { desc = "Accept Copilot suggestion", expr = true, replace_keycodes = false }
