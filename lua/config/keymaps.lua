@@ -27,6 +27,16 @@ map({ "n", "t" }, "<C-j>", "<cmd>lua require'tmux'.move_bottom()<cr>", { desc = 
 map({ "n", "t" }, "<C-k>", "<cmd>lua require'tmux'.move_up()<cr>", { desc = "Move to upper window" })
 map({ "n", "t" }, "<C-l>", "<cmd>lua require'tmux'.move_right()<cr>", { desc = "Move to right window" })
 
+-- Telescope
+map("n", "<leader>fw", "<cmd>lua require'telescope.builtin'.live_grep()<cr>", { desc = "Live grep" })
+map("n", "<leader>fW", function()
+  require("telescope.builtin").live_grep({
+    additional_args = function(args)
+      return vim.list_extend(args, { "--hidden", "--no-ignore" })
+    end,
+  })
+end, { desc = "Live grep in all files" })
+
 -- GitHub Copilot
 map(
   "i",
