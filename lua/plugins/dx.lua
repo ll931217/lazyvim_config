@@ -1,11 +1,8 @@
 return {
   {
-    "aserowy/tmux.nvim",
-    event = "VeryLazy",
+    "numToStr/Navigator.nvim",
     config = function()
-      require("tmux").setup({
-        enable_default_keybindings = true,
-      })
+      require("Navigator").setup()
     end,
   },
   -- {
