@@ -18,6 +18,16 @@ return {
   --   opts = {},
   -- },
   {
+    "stevearc/conform.nvim",
+    opts = function(_, opts)
+      table.insert(opts.formatters, "prettier")
+      table.insert(opts.formatters_by_ft, {
+        javascript = { "prettier" },
+        typescript = { "prettier" },
+      })
+    end,
+  },
+  {
     "hrsh7th/nvim-cmp",
     dependencies = {
       "hrsh7th/cmp-emoji",
