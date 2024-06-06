@@ -1,37 +1,37 @@
 return {
-  {
-    "jackMort/ChatGPT.nvim",
-    commit = "2107f7037c775bf0b9bff9015eed68929fcf493e",
-    event = "VeryLazy",
-    config = function()
-      require("chatgpt").setup()
-    end,
-    requires = {
-      "MunifTanjim/nui.nvim",
-      "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope.nvim",
-    },
-  },
-  {
-    "github/copilot.vim",
-    cmd = "Copilot",
-    event = "InsertEnter",
-  },
-  {
-    "CopilotC-Nvim/CopilotChat.nvim",
-    lazy = true,
-    event = "VeryLazy",
-    branch = "canary",
-    dependencies = {
-      { "github/copilot.vim" },
-      { "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
-    },
-    opts = {
-      debug = false, -- Enable debugging
-      -- See Configuration section for rest
-    },
-    -- See Commands section for default commands if you want to lazy load on them
-  },
+  -- {
+  --   "jackMort/ChatGPT.nvim",
+  --   commit = "2107f7037c775bf0b9bff9015eed68929fcf493e",
+  --   event = "VeryLazy",
+  --   config = function()
+  --     require("chatgpt").setup()
+  --   end,
+  --   requires = {
+  --     "MunifTanjim/nui.nvim",
+  --     "nvim-lua/plenary.nvim",
+  --     "nvim-telescope/telescope.nvim",
+  --   },
+  -- },
+  -- {
+  --   "github/copilot.vim",
+  --   cmd = "Copilot",
+  --   event = "InsertEnter",
+  -- },
+  -- {
+  --   "CopilotC-Nvim/CopilotChat.nvim",
+  --   lazy = true,
+  --   event = "VeryLazy",
+  --   branch = "canary",
+  --   dependencies = {
+  --     { "github/copilot.vim" },
+  --     { "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
+  --   },
+  --   opts = {
+  --     debug = false, -- Enable debugging
+  --     -- See Configuration section for rest
+  --   },
+  --   -- See Commands section for default commands if you want to lazy load on them
+  -- },
   {
     "David-Kunz/gen.nvim",
     lazy = false,
