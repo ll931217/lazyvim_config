@@ -22,8 +22,8 @@ return {
     opts = function(_, opts)
       table.insert(opts.formatters, "prettier")
       table.insert(opts.formatters_by_ft, {
-        javascript = { "prettier" },
-        typescript = { "prettier" },
+        javascript = { { "prettier", "prettierd" } },
+        typescript = { { "prettier", "prettierd" } },
       })
     end,
   },
