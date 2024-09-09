@@ -22,13 +22,15 @@ return {
   -- },
   {
     "stevearc/conform.nvim",
-    opts = function(_, opts)
-      table.insert(opts.formatters, "prettier")
-      table.insert(opts.formatters_by_ft, {
-        javascript = { { "prettier", "prettierd" } },
-        typescript = { { "prettier", "prettierd" } },
-      })
-    end,
+    opts = {
+      formatters = { "jq", "yq", "prettier" },
+      formatters_by_ft = {
+        javascript = { "prettier", "prettierd" },
+        typescript = { "prettier", "prettierd" },
+        json = { "jq" },
+        yaml = { "yq" },
+      },
+    },
   },
   {
     "hrsh7th/nvim-cmp",
@@ -71,5 +73,32 @@ return {
         end, { "i", "s" }),
       })
     end,
+  },
+  {
+    "zbirenbaum/copilot.lua",
+    opts = {
+      suggestion = { enabled = true },
+      panel = { enabled = true },
+    },
+  },
+  {
+    "akinsho/toggleterm.nvim",
+    version = "*",
+    config = true,
+    cmd = "ToggleTerm",
+    keys = {
+      { "<leader>t", "", { desc = "ToggleTerm" } },
+      { "<leader>tt", "<cmd>ToggleTerm size=20 direction=horizontal<cr>", { silent = true, desc = "toggle terminal" } },
+      {
+        "<leader>th",
+        "<cmd>ToggleTerm size=30 direction=horizontal<cr>",
+        { silent = true, desc = "toggle terminal in horizontal split" },
+      },
+      {
+        "<leader>tv",
+        "<cmd>ToggleTerm size=80 direction=vertical<cr>",
+        { silent = true, desc = "toggle terminal in vertical split" },
+      },
+    },
   },
 }

@@ -7,7 +7,7 @@ return {
   {
     "microsoft/vscode-js-debug",
     opt = true,
-    run = "npm install --legacy-peer-deps && npm run compile",
+    run = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out",
   },
   {
     "mfussenegger/nvim-dap",
@@ -25,26 +25,36 @@ return {
       {
         "microsoft/vscode-js-debug",
         opt = true,
-        run = "npm install --legacy-peer-deps && npm run compile",
+        run = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out",
       },
     },
     config = function()
       local dap, dapui, dapvscodejs = require("dap"), require("dapui"), require("dap-vscode-js")
 
-      dap.adapters.node2 = {
-        type = "executable",
-        command = "node",
-        args = { os.getenv("HOME") .. "/dev/microsoft/vscode-node-debug2/out/src/nodeDebug.js" },
-      }
-
       dapvscodejs.setup({
-        node_path = "node",
-        -- debugger_path = DEBUGGER_PATH,
+        -- node_path = "/home/ll931217/.local/share/pnpm/node",
+        node_path = "/usr/bin/node",
+        debugger_path = "/home/ll931217/.local/share/nvim/lazy/vscode-js-debug",
         -- debugger_cmd = { "js-debug-adapter" },
         adapters = { "pwa-node", "pwa-chrome" },
+        log_file_path = "/tmp/vscode-js-debug.log",
+        log_file_level = vim.log.levels.DEBUG,
+        log_console_level = vim.log.levels.ERROR,
       })
 
-      -- dap.configurations = require 'user.configs.dap'
+      -- Doesn't work
+      -- dap.adapters["pwa-node"] = {
+      --   type = "server",
+      --   host = "localhost",
+      --   port = "${port}",
+      --   executable = {
+      --     command = "node",
+      --     -- 💀 Make sure to update this path to point to your installation
+      --     args = { "/home/ll931217/.local/share/nvim/lazy/vscode-js-debug/out/src/vsDebugServer.js", "${port}" },
+      --   },
+      -- }
+
+      dap.configurations = require("config.dap")
 
       dap.listeners.after.event_initialized["dapui_config"] = function()
         dapui.open()

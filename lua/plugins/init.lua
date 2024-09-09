@@ -1,8 +1,19 @@
 return {
   {
+    "catppuccin/nvim",
+    config = function()
+      require("catppuccin").setup({
+        flavour = "mocha",
+        term_colors = true,
+        transparent_background = true,
+      })
+    end,
+  },
+  {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "tokyonight-moon",
+      -- colorscheme = "tokyonight-moon",
+      colorscheme = "catppuccin",
     },
   },
   {
@@ -80,6 +91,23 @@ return {
         "shfmt",
         "flake8",
       },
+    },
+  },
+  {
+    "kawre/leetcode.nvim",
+    build = ":TSUpdate html",
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+      "nvim-lua/plenary.nvim", -- required by telescope
+      "MunifTanjim/nui.nvim",
+
+      -- optional
+      "nvim-treesitter/nvim-treesitter",
+      -- "rcarriga/nvim-notify",
+      "nvim-tree/nvim-web-devicons",
+    },
+    opts = {
+      -- configuration goes here
     },
   },
 }

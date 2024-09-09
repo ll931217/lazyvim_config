@@ -39,13 +39,13 @@ map("n", "<leader>fW", function()
 end, { desc = "Live grep in all files" })
 
 -- GitHub Copilot
-map(
-  "i",
-  "<C-e>",
-  'copilot#Accept("\\<CR>")',
-  { desc = "Accept Copilot suggestion", expr = true, replace_keycodes = false }
-)
-vim.g.copilot_no_tab_map = true
+-- map(
+--   "i",
+--   "<C-e>",
+--   'copilot#Accept("\\<CR>")',
+--   { desc = "Accept Copilot suggestion", expr = true, replace_keycodes = false }
+-- )
+-- vim.g.copilot_no_tab_map = true
 
 -- GitHub Copilot Chat
 map("n", "<leader>ac", "", { desc = "Copilot Chat" })
