@@ -83,7 +83,7 @@ for _, language in ipairs(js_languages) do
       env = {
         DB_HOST = "leap-prod.cprc5ppsmxds.ap-northeast-1.rds.amazonaws.com",
         DB_NAME = "leap",
-        DB_PASSWORD = "$DB_PRODUCTION_PASSWORD",
+        DB_PASSWORD = os.getenv("DB_PROD_PASSWORD"),
       },
     },
   }
