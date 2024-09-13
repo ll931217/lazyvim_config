@@ -18,9 +18,49 @@ return {
     event = "VeryLazy",
     lazy = false,
     version = false, -- set this if you want to always pull the latest change
-    opts = {
-      providers = "copilot",
-    },
+    opts = {},
+    config = function()
+      require("avante").setup({
+        -- provider = "copilot",
+        provider = "ollama",
+        auto_suggestions_provider = "claude",
+        behaviour = {
+          auto_suggestions = false,
+        },
+        vendors = {
+          ---@type AvanteProvider
+          ollama = {
+            ["local"] = true,
+            endpoint = "127.0.0.1:11434/v1",
+            model = "deepseek-coder-v2",
+            parse_curl_args = function(opts, code_opts)
+              return {
+                url = opts.endpoint .. "/chat/completions",
+                headers = {
+                  ["Accept"] = "application/json",
+                  ["Content-Type"] = "application/json",
+                },
+                body = {
+                  model = opts.model,
+                  messages = require("avante.providers").copilot.parse_message(code_opts), -- you can make your own message, but this is very advanced
+                  max_tokens = 2048,
+                  stream = true,
+                },
+              }
+            end,
+            parse_response_data = function(data_stream, event_state, opts)
+              require("avante.providers").openai.parse_response(data_stream, event_state, opts)
+            end,
+          },
+        },
+        mappings = {
+          ---@type AvanteConflictMappings
+          suggestion = {
+            accept = "<C-e>",
+          },
+        },
+      })
+    end,
     -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
     build = "make",
     -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows

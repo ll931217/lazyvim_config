@@ -75,13 +75,6 @@ return {
     end,
   },
   {
-    "zbirenbaum/copilot.lua",
-    opts = {
-      suggestion = { enabled = true },
-      panel = { enabled = true },
-    },
-  },
-  {
     "akinsho/toggleterm.nvim",
     version = "*",
     config = true,
