@@ -21,18 +21,18 @@ return {
     opts = {},
     config = function()
       require("avante").setup({
+        provider = "claude",
         -- provider = "copilot",
-        provider = "ollama",
-        auto_suggestions_provider = "claude",
-        behaviour = {
-          auto_suggestions = false,
-        },
+        -- provider = "openai",
+        -- provider = "ollama",
         vendors = {
           ---@type AvanteProvider
           ollama = {
             ["local"] = true,
             endpoint = "127.0.0.1:11434/v1",
-            model = "deepseek-coder-v2",
+            -- model = "deepseek-coder-v2",
+            model = "qwen2.5",
+            -- model = "ollama3.1",
             parse_curl_args = function(opts, code_opts)
               return {
                 url = opts.endpoint .. "/chat/completions",

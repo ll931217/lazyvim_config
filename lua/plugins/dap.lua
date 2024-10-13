@@ -1,15 +1,6 @@
 return {
   -- Debugging
   {
-    "mxsdev/nvim-dap-vscode-js",
-    requires = { "mfussenegger/nvim-dap" },
-  },
-  {
-    "microsoft/vscode-js-debug",
-    opt = true,
-    run = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out",
-  },
-  {
     "mfussenegger/nvim-dap",
     opt = true,
     module = "dap",
@@ -25,7 +16,7 @@ return {
       {
         "microsoft/vscode-js-debug",
         opt = true,
-        run = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out",
+        run = "npm ci --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out",
       },
     },
     config = function()

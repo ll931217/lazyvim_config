@@ -1,5 +1,13 @@
 return {
   {
+    "eldritch-theme/eldritch.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {
+      transparent = true,
+    },
+  },
+  {
     "catppuccin/nvim",
     config = function()
       require("catppuccin").setup({
@@ -8,14 +16,29 @@ return {
         transparent_background = true,
       })
     end,
+    opts = {
+      term_colors = true,
+      transparent_background = true,
+    },
   },
   {
     "LazyVim/LazyVim",
     opts = {
       -- colorscheme = "tokyonight-moon",
-      colorscheme = "catppuccin",
+      -- colorscheme = "catppuccin",
+      colorscheme = "eldritch",
     },
   },
+  -- {
+  --   "tokyonight.nvim",
+  --   opts = {
+  --     transparent = true,
+  --     styles = {
+  --       sidebars = "transparent",
+  --       floats = "transparent",
+  --     },
+  --   },
+  -- },
   {
     "epwalsh/obsidian.nvim",
     version = "*", -- recommended, use latest release instead of latest commit

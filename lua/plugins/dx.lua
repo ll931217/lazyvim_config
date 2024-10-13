@@ -94,4 +94,13 @@ return {
       },
     },
   },
+  {
+    "jaimecgomezz/here.term",
+    opts = {
+      mappings = {
+        toggle = "<C-i>",
+        kill = "<C-S-i>",
+      },
+    },
+  },
 }

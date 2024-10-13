@@ -10,14 +10,16 @@ vim.cmd([[
   highlight NonText ctermbg=NONE
 ]])
 
--- local function alpha()
---   return math.floor(vim.g.transparency * 255)
--- end
+local function alpha()
+  return math.floor(vim.g.transparency * 255)
+end
+
+vim.opt.guicursor = "a:blinkon100"
 
 -- Neovide configration
 if vim.g.neovide then
   vim.o.termguicolors = true
-  vim.opt.guifont = "Fantasque_Sans_Mono:h14"
+  vim.opt.guifont = "Fantasque_Sans_Mono:h12"
   -- vim.opt.guifont = { 'FiraCode Nerd Font Mono,codicon Nerd Font', 'h18' }
 
   vim.g.neovide_floating_blur_amount_x = 2.0
@@ -34,8 +36,8 @@ if vim.g.neovide then
   vim.g.neovide_padding_left = 5
 
   vim.g.neovide_transparency = 0.8
-  -- vim.g.transparency = 0.8
-  -- vim.g.neovide_background_color = "#24273A" .. alpha()
+  vim.g.transparency = 0.8
+  vim.g.neovide_background_color = "#24273A" .. alpha()
 
   -- Zoom controls
   -- vim.api.nvim_set_keymap(
