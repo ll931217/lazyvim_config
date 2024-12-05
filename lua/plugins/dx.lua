@@ -2,12 +2,12 @@ return {
   {
     "tris203/precognition.nvim",
   },
-  {
-    "numToStr/Navigator.nvim",
-    config = function()
-      require("Navigator").setup({})
-    end,
-  },
+  -- {
+  --   "numToStr/Navigator.nvim",
+  --   config = function()
+  --     require("Navigator").setup({})
+  --   end,
+  -- },
   -- {
   --   "https://git.sr.ht/~swaits/zellij-nav.nvim",
   --   lazy = true,
@@ -95,12 +95,20 @@ return {
     },
   },
   {
-    "jaimecgomezz/here.term",
-    opts = {
-      mappings = {
-        toggle = "<C-i>",
-        kill = "<C-S-i>",
-      },
+    "christoomey/vim-tmux-navigator",
+    cmd = {
+      "TmuxNavigateLeft",
+      "TmuxNavigateDown",
+      "TmuxNavigateUp",
+      "TmuxNavigateRight",
+      "TmuxNavigatePrevious",
+    },
+    keys = {
+      { "<c-h>", "<cmd><C-U>TmuxNavigateLeft<cr>" },
+      { "<c-j>", "<cmd><C-U>TmuxNavigateDown<cr>" },
+      { "<c-k>", "<cmd><C-U>TmuxNavigateUp<cr>" },
+      { "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
+      { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
     },
   },
 }

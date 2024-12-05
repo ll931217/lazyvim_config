@@ -22,23 +22,27 @@ return {
     },
   },
   {
+    "Mofiqul/dracula.nvim",
+  },
+  {
     "LazyVim/LazyVim",
     opts = {
-      -- colorscheme = "tokyonight-moon",
+      colorscheme = "tokyonight-moon",
       -- colorscheme = "catppuccin",
-      colorscheme = "eldritch",
+      -- colorscheme = "eldritch",
+      -- colorscheme = "dracula",
     },
   },
-  -- {
-  --   "tokyonight.nvim",
-  --   opts = {
-  --     transparent = true,
-  --     styles = {
-  --       sidebars = "transparent",
-  --       floats = "transparent",
-  --     },
-  --   },
-  -- },
+  {
+    "tokyonight.nvim",
+    opts = {
+      transparent = true,
+      styles = {
+        sidebars = "transparent",
+        floats = "transparent",
+      },
+    },
+  },
   {
     "epwalsh/obsidian.nvim",
     version = "*", -- recommended, use latest release instead of latest commit
@@ -102,6 +106,24 @@ return {
     opts = function(_, opts)
       table.insert(opts.sections.lualine_x, "😄")
     end,
+  },
+  {
+    "echasnovski/mini.files",
+    opts = {
+      windows = {
+        preview = true,
+        width_focus = 30,
+        width_preview = 80,
+      },
+      options = {
+        -- Whether to use for editing directories
+        -- Disabled by default in LazyVim because neo-tree is used for that
+        use_as_default_explorer = false,
+      },
+    },
+    -- opts = function(_, opts)
+    --   table.insert(opts.windows.window_preview, 50)
+    -- end,
   },
 
   -- add any tools you want to have installed below

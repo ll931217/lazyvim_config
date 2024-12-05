@@ -242,42 +242,7 @@ return {
       },
     },
   },
-  -- {
-  --   "stevearc/oil.nvim",
-  --   dependencies = { "nvim-tree/nvim-web-devicons" },
-  --   config = function()
-  --     require("oil").setup({
-  --       icons = require("nvim-web-devicons"),
-  --       default = {
-  --         bg = colors.bg,
-  --         fg = colors.fg,
-  --         hl = "Normal",
-  --       },
-  --       mode = {
-  --         normal = {
-  --           bg = colors.bg,
-  --           fg = colors.fg,
-  --           hl = "Normal",
-  --         },
-  --         insert = {
-  --           bg = colors.bg,
-  --           fg = colors.green,
-  --           hl = "Normal",
-  --         },
-  --         visual = {
-  --           bg = colors.bg,
-  --           fg = colors.blue,
-  --           hl = "Normal",
-  --         },
-  --         replace = {
-  --           bg = colors.bg,
-  --           fg = colors.red,
-  --           hl = "Normal",
-  --         },
-  --       },
-  --     })
-  --
-  --     vim.keymap.set("n", "-", "<cmd>Oil<CR>", { desc = "Open parent dir", noremap = true })
-  --   end,
-  -- },
+  {
+    "digitaltoad/vim-pug",
+  },
 }

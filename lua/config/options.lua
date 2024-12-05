@@ -15,6 +15,7 @@ local function alpha()
 end
 
 vim.opt.guicursor = "a:blinkon100"
+vim.opt.hidden = true
 
 -- Neovide configration
 if vim.g.neovide then
