@@ -27,9 +27,9 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "tokyonight-moon",
+      -- colorscheme = "tokyonight-moon",
       -- colorscheme = "catppuccin",
-      -- colorscheme = "eldritch",
+      colorscheme = "eldritch",
       -- colorscheme = "dracula",
     },
   },
@@ -152,7 +152,7 @@ return {
       "nvim-tree/nvim-web-devicons",
     },
     opts = {
-      -- configuration goes here
+      lang = "python3",
     },
   },
 }

@@ -21,6 +21,8 @@ map({ "n", "t" }, "<A-i>", function()
   Snacks.terminal()
 end, { desc = "Toggle Floating Terminal" })
 
+map("n", "<leader>ct", "<cmd>lua require('telescope').extensions.flutter.commands()<cr>", { desc = "Flutter Commands" })
+
 -- Navigator
 -- vim.keymap.set({ "n", "t" }, "<C-h>", "<CMD>NavigatorLeft<CR>")
 -- vim.keymap.set({ "n", "t" }, "<C-l>", "<CMD>NavigatorRight<CR>")

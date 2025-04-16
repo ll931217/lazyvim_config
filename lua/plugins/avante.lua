@@ -1,54 +1,47 @@
--- avante.lua
 return {
   "yetone/avante.nvim",
+  enabled = true,
+  event = "VeryLazy",
   lazy = false,
   version = false, -- set this if you want to always pull the latest change
   opts = {
-    provider = "claude",
+    -- provider = "claude",
     -- provider = "copilot",
     -- provider = "openai",
     -- provider = "ollama",
+    -- auto_suggestions_provider = "claude",
+    provider = "openrouter",
     vendors = {
-      ---@type AvanteProvider
+      openrouter = {
+        __inherited_from = "openai",
+        endpoint = "https://openrouter.ai/api/v1",
+        api_key_name = "OPENROUTER_API_KEY",
+        model = "anthropic/claude-3.5-sonnet",
+      },
       ollama = {
-        ["local"] = true,
-        endpoint = "127.0.0.1:11434/v1",
-        -- model = "deepseek-coder-v2",
-        model = "qwen2.5",
-        -- model = "ollama3.1",
-        parse_curl_args = function(opts, code_opts)
-          return {
-            url = opts.endpoint .. "/chat/completions",
-            headers = {
-              ["Accept"] = "application/json",
-              ["Content-Type"] = "application/json",
-            },
-            body = {
-              model = opts.model,
-              messages = require("avante.providers").copilot.parse_message(code_opts), -- you can make your own message, but this is very advanced
-              max_tokens = 2048,
-              stream = true,
-            },
-          }
-        end,
-        parse_response_data = function(data_stream, event_state, opts)
-          require("avante.providers").openai.parse_response(data_stream, event_state, opts)
-        end,
+        __inherited_from = "openai",
+        api_key_name = "",
+        endpoint = "http://127.0.0.1:11434/v1",
+        model = "codegemma",
       },
     },
+    -- behaviour = {
+    --   auto_suggestions = true,
+    -- },
     mappings = {
-      ---@type AvanteConflictMappings
       suggestion = {
         accept = "<C-e>",
       },
     },
   },
+  -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
+  build = "make",
   dependencies = {
-    "nvim-treesitter/nvim-treesitter",
     "stevearc/dressing.nvim",
     "nvim-lua/plenary.nvim",
     "MunifTanjim/nui.nvim",
     --- The below dependencies are optional,
+    "hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
     "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
     "zbirenbaum/copilot.lua", -- for providers='copilot'
     {
