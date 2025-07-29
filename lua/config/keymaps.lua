@@ -50,11 +50,11 @@ map("n", "<leader>ct", "<cmd>lua require('telescope').extensions.flutter.command
 -- vim.g.copilot_no_tab_map = true
 
 -- GitHub Copilot Chat
-map("n", "<leader>ac", "", { desc = "Copilot Chat" })
-map("n", "<leader>act", "<cmd>lua require'CopilotChat'.toggle()<cr>", { desc = "Toggle Chat" })
-map("n", "<leader>acq", function()
-  local input = vim.fn.input("Quick Chat: ")
-  if input ~= "" then
-    require("CopilotChat").ask(input, { selection = require("CopilotChat.select").buffer })
-  end
-end, { desc = "Quick Chat" })
+-- map("n", "<leader>ac", "", { desc = "Copilot Chat" })
+-- map("n", "<leader>act", "<cmd>lua require'CopilotChat'.toggle()<cr>", { desc = "Toggle Chat" })
+-- map("n", "<leader>acq", function()
+--   local input = vim.fn.input("Quick Chat: ")
+--   if input ~= "" then
+--     require("CopilotChat").ask(input, { selection = require("CopilotChat.select").buffer })
+--   end
+-- end, { desc = "Quick Chat" })
