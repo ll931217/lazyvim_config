@@ -8,8 +8,8 @@ return {
     -- provider = "copilot",
     -- provider = "openai",
     -- provider = "ollama",
-    provider = "openrouter",
-    -- auto_suggestions_provider = "openrouter",
+    provider = "zai",
+    auto_suggestions_provider = "zai_fast",
     -- system_prompt = function()
     --   local hub = require("mcphub").get_hub_instance()
     --   return hub:get_active_servers_prompt()
@@ -26,6 +26,18 @@ return {
         endpoint = "https://openrouter.ai/api/v1",
         api_key_name = "OPENROUTER_API_KEY",
         model = "anthropic/claude-sonnet-4",
+      },
+      zai = {
+        __inherited_from = "openai",
+        endpoint = "https://api.z.ai/api/paas/v4/chat/completions",
+        api_key_name = "ZAI_API_KEY",
+        model = "glm-4.5",
+      },
+      zai_fast = {
+        __inherited_from = "openai",
+        endpoint = "https://api.z.ai/api/paas/v4/chat/completions",
+        api_key_name = "ZAI_API_KEY",
+        model = "glm-4.5-air",
       },
       ollama = {
         endpoint = "http://127.0.0.1:11434",
