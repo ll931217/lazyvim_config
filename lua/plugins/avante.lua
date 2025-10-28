@@ -1,6 +1,6 @@
 return {
   "yetone/avante.nvim",
-  enabled = false,
+  enabled = true,
   event = "VeryLazy",
   version = false, -- set this if you want to always pull the latest change
   opts = {
@@ -8,8 +8,9 @@ return {
     -- provider = "copilot",
     -- provider = "openai",
     -- provider = "ollama",
-    provider = "zai",
-    auto_suggestions_provider = "zai_fast",
+    -- provider = "openrouter",
+    provider = "vici",
+    auto_suggestions_provider = "vici",
     -- system_prompt = function()
     --   local hub = require("mcphub").get_hub_instance()
     --   return hub:get_active_servers_prompt()
@@ -21,6 +22,53 @@ return {
     --   }
     -- end,
     providers = {
+      ["vici"] = {
+        -- is_env_set = function () return true end,
+        -- parse_api_key = function () return nil end,
+        __inherited_from = "openai",
+        endpoint = "http://aigw.vici.corp",
+        model = "apac-sonnet-4",
+        api_key_name = "ANTHROPIC_API_KEY",
+        -- extra_request_body = {
+        --   max_tokens = 4096,
+        -- },
+      },
+      azure = {
+        endpoint = "https://vici-chat.openai.azure.com/openai/deployments/gpt-4-1",
+        api_key_name = "OPENAI_API_KEY",
+        deployment = "gpt-4-1",
+        api_version = "2025-01-01-preview",
+        timeout = 30000,
+        extra_request_body = {
+          temperature = 0.75,
+          max_completion_tokens = 20480,
+        },
+      },
+      -- ["vici"] = {
+      --   __inherited_from = "azure",
+      --   -- __inherited_from = "openai",
+      --   endpoint = "https://vici-chat.openai.azure.com/openai/deployments/gpt-4-1",
+      --   api_key_name = "OPENAI_API_KEY",
+      --   model = "gpt-4-1",
+      --   parse_curl_args = function (opts, code_opts)
+      --     local headers = {
+      --       ["Content-Type"] = "application/json",
+      --       ["Accept"] = "application/json",
+      --       ["Authorization"] = "Bearer " .. os.getenv(opts.api_key_name),
+      --     }
+      --
+      --     return {
+      --       url = opts.endpoint .. "/chat/completions?api-version=2025-01-01-preview",
+      --       insecure = false,
+      --       headers = headers,
+      --       body = vim.tbl_deep_extend("force", {
+      --         model = opts.model,
+      --         maxTokensToSample = 4096,
+      --         stream = true,
+      --       }, {}),
+      --     }
+      --   end
+      -- },
       openrouter = {
         __inherited_from = "openai",
         endpoint = "https://openrouter.ai/api/v1",
@@ -46,7 +94,7 @@ return {
     },
     behaviour = {
       use_cwd_as_project_root = true,
-      auto_suggestions = true,
+      auto_suggestions = false,
     },
     mappings = {
       suggestion = {
