@@ -8,9 +8,9 @@ return {
     -- provider = "copilot",
     -- provider = "openai",
     -- provider = "ollama",
-    -- provider = "openrouter",
-    provider = "vici",
-    auto_suggestions_provider = "vici",
+    -- provider = "zai",
+    provider = "openrouter",
+    -- auto_suggestions_provider = "zai_fast",
     -- system_prompt = function()
     --   local hub = require("mcphub").get_hub_instance()
     --   return hub:get_active_servers_prompt()
@@ -73,7 +73,7 @@ return {
         __inherited_from = "openai",
         endpoint = "https://openrouter.ai/api/v1",
         api_key_name = "OPENROUTER_API_KEY",
-        model = "anthropic/claude-sonnet-4",
+        model = "z-ai/glm-4.5-air:free",
       },
       zai = {
         __inherited_from = "openai",
@@ -128,14 +128,14 @@ return {
         },
       },
     },
-    {
-      -- Make sure to set this up properly if you have lazy=true
-      "MeanderingProgrammer/render-markdown.nvim",
-      opts = {
-        file_types = { "markdown", "Avante" },
-      },
-      ft = { "markdown", "Avante" },
-    },
+    -- {
+    --   -- Make sure to set this up properly if you have lazy=true
+    --   "MeanderingProgrammer/render-markdown.nvim",
+    --   opts = {
+    --     file_types = { "markdown", "Avante" },
+    --   },
+    --   ft = { "markdown", "Avante" },
+    -- },
   },
   -- {
   --   "ravitemer/mcphub.nvim",

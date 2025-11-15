@@ -6,29 +6,7 @@ local map = vim.keymap.set
 
 map("n", ";", ":", { desc = "Enter command mode" })
 
-map({ "n", "v" }, "<leader>]", "<cmd>Gen<cr>", { desc = "Gen with ollama" })
-
-map("n", "<leader>o", function()
-  if vim.bo.filetype == "neo-tree" then
-    vim.cmd.wincmd("p")
-  else
-    vim.cmd.Neotree("focus")
-  end
-end, { desc = "Toggle NeoTree Focus" })
-
--- Toggle Floating Terminal
-map({ "n", "t" }, "<A-i>", function()
-  Snacks.terminal()
-end, { desc = "Toggle Floating Terminal" })
-
 map("n", "<leader>ct", "<cmd>lua require('telescope').extensions.flutter.commands()<cr>", { desc = "Flutter Commands" })
-
--- Navigator
--- vim.keymap.set({ "n", "t" }, "<C-h>", "<CMD>NavigatorLeft<CR>")
--- vim.keymap.set({ "n", "t" }, "<C-l>", "<CMD>NavigatorRight<CR>")
--- vim.keymap.set({ "n", "t" }, "<C-k>", "<CMD>NavigatorUp<CR>")
--- vim.keymap.set({ "n", "t" }, "<C-j>", "<CMD>NavigatorDown<CR>")
--- vim.keymap.set({ "n", "t" }, "<C-p>", "<CMD>NavigatorPrevious<CR>")
 
 -- Telescope
 -- map("n", "<leader>fw", "<cmd>lua require'telescope.builtin'.live_grep()<cr>", { desc = "Live grep" })
