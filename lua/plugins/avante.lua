@@ -9,7 +9,8 @@ return {
     -- provider = "openai",
     -- provider = "ollama",
     -- provider = "zai",
-    provider = "openrouter",
+    -- provider = "openrouter",
+    provider = "vici",
     -- auto_suggestions_provider = "zai_fast",
     -- system_prompt = function()
     --   local hub = require("mcphub").get_hub_instance()
@@ -23,14 +24,20 @@ return {
     -- end,
     providers = {
       ["vici"] = {
-        -- is_env_set = function () return true end,
-        -- parse_api_key = function () return nil end,
         __inherited_from = "openai",
         endpoint = "http://aigw.vici.corp",
+        -- [
+        --   {'apac-sonnet-4': ['apac-2-sonnet-4', 'apac-2-s-sonnet-4', 'asia-east1-sonnet-4', 'vertex-claude-opus-4-1', 'us-sonnet-4']},
+        --   {'apac-2-sonnet-4': ['apac-2-s-sonnet-4', 'asia-east1-sonnet-4', 'vertex-claude-opus-4-1', 'us-sonnet-4']},
+        --   {'apac-2-s-sonnet-4': ['asia-east1-sonnet-4', 'vertex-claude-opus-4-1', 'us-sonnet-4']},
+        --   {'asia-east1-sonnet-4': ['vertex-claude-opus-4-1', 'us-sonnet-4']},
+        --   {'vertex-claude-opus-4-1': ['us-sonnet-4']}
+        -- ]
+        -- model = "vertex-claude-sonnet-4-5",
         model = "apac-sonnet-4",
         api_key_name = "ANTHROPIC_API_KEY",
         -- extra_request_body = {
-        --   max_tokens = 4096,
+        --   max_tokens = 200000,
         -- },
       },
       azure = {
@@ -69,28 +76,28 @@ return {
       --     }
       --   end
       -- },
-      openrouter = {
-        __inherited_from = "openai",
-        endpoint = "https://openrouter.ai/api/v1",
-        api_key_name = "OPENROUTER_API_KEY",
-        model = "z-ai/glm-4.5-air:free",
-      },
-      zai = {
-        __inherited_from = "openai",
-        endpoint = "https://api.z.ai/api/paas/v4/chat/completions",
-        api_key_name = "ZAI_API_KEY",
-        model = "glm-4.5",
-      },
-      zai_fast = {
-        __inherited_from = "openai",
-        endpoint = "https://api.z.ai/api/paas/v4/chat/completions",
-        api_key_name = "ZAI_API_KEY",
-        model = "glm-4.5-air",
-      },
-      ollama = {
-        endpoint = "http://127.0.0.1:11434",
-        model = "codegemma",
-      },
+      -- openrouter = {
+      --   __inherited_from = "openai",
+      --   endpoint = "https://openrouter.ai/api/v1",
+      --   api_key_name = "OPENROUTER_API_KEY",
+      --   model = "z-ai/glm-4.5-air:free",
+      -- },
+      -- zai = {
+      --   __inherited_from = "openai",
+      --   endpoint = "https://api.z.ai/api/paas/v4/chat/completions",
+      --   api_key_name = "ZAI_API_KEY",
+      --   model = "glm-4.5",
+      -- },
+      -- zai_fast = {
+      --   __inherited_from = "openai",
+      --   endpoint = "https://api.z.ai/api/paas/v4/chat/completions",
+      --   api_key_name = "ZAI_API_KEY",
+      --   model = "glm-4.5-air",
+      -- },
+      -- ollama = {
+      --   endpoint = "http://127.0.0.1:11434",
+      --   model = "codegemma",
+      -- },
     },
     behaviour = {
       use_cwd_as_project_root = true,
