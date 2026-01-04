@@ -22,6 +22,14 @@ local function alpha()
   return math.floor(vim.g.transparency * 255)
 end
 
+vim.opt.listchars = {
+  tab = "🡒 ",
+  space = "·",
+  nbsp = "␣",
+  extends = "⟩",
+  precedes = "⟨",
+}
+
 vim.opt.guicursor = "a:blinkon100"
 vim.opt.hidden = true
 
