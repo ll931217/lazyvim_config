@@ -29,6 +29,9 @@ vim.opt.listchars = {
   extends = "⟩",
   precedes = "⟨",
 }
+-- vim.g.clipboard = "osc52"
+vim.o.clipboard = "unnamedplus"
+vim.api.nvim_set_keymap("n", "<C-d>", "<C-f>", { noremap = true, silent = true }) -- Use Ctrl+D for page down
 
 vim.opt.guicursor = "a:blinkon100"
 vim.opt.hidden = true
