@@ -4,8 +4,9 @@ return {
     opts = {
       -- colorscheme = "tokyonight-moon",
       -- colorscheme = "catppuccin",
-      colorscheme = "eldritch",
+      -- colorscheme = "eldritch",
       -- colorscheme = "dracula",
+      colorscheme = "kanso",
     },
   },
   {
@@ -41,6 +42,14 @@ return {
         sidebars = "transparent",
         floats = "transparent",
       },
+    },
+  },
+  {
+    "webhooked/kanso.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {
+      transparent = true,
     },
   },
 }

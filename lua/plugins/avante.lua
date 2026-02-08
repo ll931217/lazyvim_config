@@ -17,7 +17,7 @@ return {
   opts = {
     ---@alias Provider "claude" | "openai" | "azure" | "gemini" | "cohere" | "copilot" | string
     ---@type Provider
-    provider = "glm",
+    provider = "zai",
     auto_suggestions_provider = "zai_fast",
     default = {
       "avante_commands",
@@ -59,6 +59,9 @@ return {
           max_tokens = 200000,
         },
       },
+      morph = {
+        model = "morph-v3-large",
+      },
       azure = {
         endpoint = "https://vici-chat.openai.azure.com/openai/deployments/gpt-4-1",
         api_key_name = "OPENAI_API_KEY",
@@ -76,12 +79,19 @@ return {
         api_key_name = "OPENROUTER_API_KEY",
         model = "z-ai/glm-4.5-air:free",
       },
+      zai = {
+        __inherited_from = "openai",
+        endpoint = "https://api.z.ai/api/coding/paas/v4",
+        -- endpoint = "https://open.bigmodel.cn/api/coding/paas/v4",
+        api_key_name = "GLM_API_KEY",
+        model = "glm-4.7",
+      },
       zai_fast = {
         __inherited_from = "openai",
-        -- endpoint = "https://api.z.ai/api/coding/paas/v4/chat/completions",
-        endpoint = "https://open.bigmodel.cn/api/coding/paas/v4",
+        endpoint = "https://api.z.ai/api/coding/paas/v4",
+        -- endpoint = "https://open.bigmodel.cn/api/coding/paas/v4",
         api_key_name = "GLM_API_KEY",
-        model = "GLM-4.5-Air",
+        model = "GLM-4.7-Flash",
       },
       ollama = {
         endpoint = "http://127.0.0.1:11434",
@@ -106,6 +116,7 @@ return {
       use_cwd_as_project_root = true,
       auto_suggestions = false,
       auto_set_keymaps = false,
+      enable_fastapply = true,
     },
     mappings = {
       suggestion = {

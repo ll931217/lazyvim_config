@@ -24,7 +24,7 @@ end
 
 vim.opt.listchars = {
   tab = "🡒 ",
-  space = "·",
+  -- space = "·",
   nbsp = "␣",
   extends = "⟩",
   precedes = "⟨",
