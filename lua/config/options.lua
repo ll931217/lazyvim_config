@@ -29,8 +29,24 @@ vim.opt.listchars = {
   extends = "⟩",
   precedes = "⟨",
 }
--- vim.g.clipboard = "osc52"
-vim.o.clipboard = "unnamedplus"
+
+-- Force Neovim to use the OSC 52 clipboard provider
+-- This writes to the system clipboard using ANSI escape sequences
+vim.g.clipboard = {
+  name = "OSC 52",
+  copy = {
+    ["+"] = require("vim.ui.clipboard.osc52").copy("+"),
+    ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
+  },
+  paste = {
+    ["+"] = require("vim.ui.clipboard.osc52").paste("+"),
+    ["*"] = require("vim.ui.clipboard.osc52").paste("*"),
+  },
+}
+
+-- Sync the '+' register with the system clipboard
+vim.opt.clipboard = "unnamedplus"
+
 vim.api.nvim_set_keymap("n", "<C-d>", "<C-f>", { noremap = true, silent = true }) -- Use Ctrl+D for page down
 
 vim.opt.guicursor = "a:blinkon100"
