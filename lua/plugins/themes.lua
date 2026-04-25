@@ -5,8 +5,8 @@ return {
       -- colorscheme = "tokyonight-moon",
       -- colorscheme = "catppuccin",
       -- colorscheme = "eldritch",
-      -- colorscheme = "dracula",
-      colorscheme = "kanso",
+      colorscheme = "dracula",
+      -- colorscheme = "kanso",
     },
   },
   {
@@ -33,6 +33,9 @@ return {
   },
   {
     "Mofiqul/dracula.nvim",
+    opts = {
+      transparent_bg = true,
+    },
   },
   {
     "tokyonight.nvim",
