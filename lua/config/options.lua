@@ -52,6 +52,8 @@ vim.api.nvim_set_keymap("n", "<C-d>", "<C-f>", { noremap = true, silent = true }
 vim.opt.guicursor = "a:blinkon100"
 vim.opt.hidden = true
 
+vim.g.lazyvim_python_lsp = "ty"
+
 -- Neovide configration
 if vim.g.neovide then
   vim.o.termguicolors = true
