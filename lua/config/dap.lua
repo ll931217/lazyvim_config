@@ -7,6 +7,19 @@ local js_languages = {
 for _, language in ipairs(js_languages) do
   configs[language] = {
     {
+      type = "chrome",
+      request = "attach",
+      name = "Attach to Chrome",
+      port = 9222,
+      webRoot = "${workspaceFolder}",
+      sourceMaps = true,
+      -- sourceMapPathOverrides = {
+      --   ['webpack:///./src/*'] = '${webRoot}/src/*',
+      --   ['webpack:///./*'] = '${webRoot}/*',
+      --   ['webpack:///src/*'] = '${webRoot}/src/*',
+      -- }
+    },
+    {
       name = "Launch Leap Dev",
       type = "pwa-node",
       request = "launch",
