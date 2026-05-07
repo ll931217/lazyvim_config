@@ -5,9 +5,8 @@
 -- vim.g.lazyvim_debug_set_default = true
 
 -- vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
--- vim.opt.foldmethod = "expr"
--- vim.opt.foldmethod = "expr"
 -- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+-- vim.opt.foldmethod = "expr"
 -- vim.opt.foldmethod = "manual"
 vim.opt.foldmethod = "syntax"
 
@@ -32,7 +31,8 @@ vim.opt.listchars = {
 
 -- Force Neovim to use the OSC 52 clipboard provider
 -- This writes to the system clipboard using ANSI escape sequences
-if vim.env.SSH_ENVIRONMENT then
+-- NOTE: Only use on remote ssh machines
+if vim.env.SSH_CONNECTION then
   vim.g.clipboard = {
     name = "OSC 52",
     copy = {
