@@ -4,12 +4,12 @@
 
 -- vim.g.lazyvim_debug_set_default = true
 
--- vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 -- vim.opt.foldmethod = "expr"
 -- vim.opt.foldmethod = "expr"
 -- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 -- vim.opt.foldmethod = "manual"
-vim.opt.foldmethod = "syntax"
+-- vim.opt.foldmethod = "syntax"
 
 vim.cmd([[
   highlight Normal guibg=NONE
@@ -22,13 +22,13 @@ local function alpha()
   return math.floor(vim.g.transparency * 255)
 end
 
-vim.opt.listchars = {
-  tab = "🡒 ",
-  space = "·",
-  nbsp = "␣",
-  extends = "⟩",
-  precedes = "⟨",
-}
+-- vim.opt.listchars = {
+--   tab = "🡒 ",
+--   space = "·",
+--   nbsp = "␣",
+--   extends = "⟩",
+--   precedes = "⟨",
+-- }
 
 -- Force Neovim to use the OSC 52 clipboard provider
 -- This writes to the system clipboard using ANSI escape sequences

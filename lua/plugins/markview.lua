@@ -1,7 +1,8 @@
 return {
   "OXY2DEV/markview.nvim",
   enabled = true,
-  lazy = false,
+  lazy = true,
+  ft = "markdown",
 
   -- For blink.cmp's completion
   -- source

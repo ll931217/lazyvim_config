@@ -1,6 +1,6 @@
 return {
   "yetone/avante.nvim",
-  enabled = true,
+  enabled = false,
   keys = {
     { "<leader>aa", "<cmd>AvanteAsk<CR>", mode = { "n", "v" }, desc = "Ask Avante" },
     { "<leader>ac", "<cmd>AvanteChat<CR>", desc = "Chat with Avante" },
