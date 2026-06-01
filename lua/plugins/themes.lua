@@ -5,8 +5,9 @@ return {
       -- colorscheme = "tokyonight-moon",
       -- colorscheme = "catppuccin",
       -- colorscheme = "eldritch",
-      colorscheme = "dracula",
+      -- colorscheme = "dracula",
       -- colorscheme = "kanso",
+      colorscheme = "amp",
     },
   },
   {
